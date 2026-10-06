@@ -1,0 +1,706 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "integer"
+    },
+    "campaign_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "offering": {
+          "type": "string"
+        },
+        "geography": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "lead_target": {
+          "type": "integer"
+        },
+        "draft_target": {
+          "type": "integer"
+        },
+        "send_mode": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "offering",
+        "geography",
+        "language",
+        "lead_target",
+        "draft_target",
+        "send_mode",
+        "signature"
+      ]
+    },
+    "stages": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "reason"
+          ]
+        },
+        "prospects": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "reason"
+          ]
+        },
+        "decision_makers": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "reason"
+          ]
+        },
+        "emails": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "reason"
+          ]
+        }
+      },
+      "required": [
+        "company",
+        "prospects",
+        "decision_makers",
+        "emails"
+      ]
+    },
+    "company_brief": {
+      "type": "object",
+      "properties": {
+        "offer": {
+          "type": "string"
+        },
+        "proof": {
+          "type": "string"
+        },
+        "commercial_terms": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "offer",
+        "proof",
+        "commercial_terms"
+      ]
+    },
+    "competitors": {
+      "type": "array",
+      "items": {}
+    },
+    "campaigns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "segment": {
+            "type": "string"
+          },
+          "offer": {
+            "type": "string"
+          },
+          "objective": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "segment",
+          "offer",
+          "objective"
+        ]
+      }
+    },
+    "selected_campaign": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "checked_on": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "published_on": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "summary": {
+            "type": "string"
+          },
+          "supports": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "url",
+          "title",
+          "kind",
+          "checked_on",
+          "published_on",
+          "summary",
+          "supports"
+        ]
+      }
+    },
+    "suppression": {
+      "type": "object",
+      "properties": {
+        "domains": {
+          "type": "array",
+          "items": {}
+        },
+        "emails": {
+          "type": "array",
+          "items": {}
+        },
+        "lead_ids": {
+          "type": "array",
+          "items": {}
+        },
+        "coverage_note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "domains",
+        "emails",
+        "lead_ids",
+        "coverage_note"
+      ]
+    },
+    "leads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "member_no": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "company": {
+            "type": "string"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {}
+          },
+          "website": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "segment": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "legal_form": {
+            "type": "string"
+          },
+          "observed_facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string"
+                },
+                "source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "claim",
+                "source_ids"
+              ]
+            }
+          },
+          "company_source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "need_hypothesis": {
+            "type": "string"
+          },
+          "signal": {
+            "type": "object",
+            "properties": {
+              "strength": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "strength",
+              "summary",
+              "source_ids"
+            ]
+          },
+          "scores": {
+            "type": "object",
+            "properties": {
+              "service_fit": {
+                "type": "integer"
+              },
+              "business_signal": {
+                "type": "integer"
+              },
+              "proof_fit": {
+                "type": "integer"
+              },
+              "buyer_role": {
+                "type": "integer"
+              },
+              "contact_route": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "service_fit",
+              "business_signal",
+              "proof_fit",
+              "buyer_role",
+              "contact_route"
+            ]
+          },
+          "score_reasons": {
+            "type": "object",
+            "properties": {
+              "service_fit": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string"
+                  },
+                  "source_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "reason",
+                  "source_ids"
+                ]
+              },
+              "proof_fit": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string"
+                  },
+                  "source_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "reason",
+                  "source_ids"
+                ]
+              },
+              "buyer_role": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string"
+                  },
+                  "source_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "reason",
+                  "source_ids"
+                ]
+              },
+              "contact_route": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string"
+                  },
+                  "source_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "reason",
+                  "source_ids"
+                ]
+              }
+            },
+            "required": [
+              "service_fit",
+              "proof_fit",
+              "buyer_role"
+            ]
+          },
+          "decision_maker": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "identity_status": {
+                "type": "string"
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "name",
+              "role",
+              "identity_status",
+              "source_ids"
+            ]
+          },
+          "leadership_candidate": {
+            "type": "null"
+          },
+          "contact": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "kind": {
+                "type": "string"
+              },
+              "route": {
+                "type": "string"
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "deliverability": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "email",
+              "kind",
+              "route",
+              "source_ids",
+              "url"
+            ]
+          },
+          "conflicts": {
+            "type": "array",
+            "items": {}
+          },
+          "unknowns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "string"
+          },
+          "draft": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "version": {
+                "type": "integer"
+              },
+              "subject": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "factual_review_complete": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "version",
+              "subject",
+              "body",
+              "source_ids",
+              "factual_review_complete"
+            ]
+          },
+          "approval": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "approved": {
+                "type": "boolean"
+              },
+              "at": {
+                "type": "string"
+              }
+            }
+          },
+          "prior_outreach": {
+            "type": "array",
+            "items": {}
+          },
+          "next_action": {
+            "type": "string"
+          },
+          "draft_word_count": {
+            "type": "integer"
+          },
+          "research_id": {
+            "type": "string"
+          },
+          "priority_score": {
+            "type": "integer"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "role_check_note": {
+            "type": "string"
+          },
+          "qualification": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "member_no",
+          "company",
+          "aliases",
+          "website",
+          "segment",
+          "state",
+          "legal_form",
+          "observed_facts",
+          "company_source_ids",
+          "need_hypothesis",
+          "signal",
+          "scores",
+          "score_reasons",
+          "decision_maker",
+          "leadership_candidate",
+          "contact",
+          "conflicts",
+          "unknowns",
+          "status",
+          "draft",
+          "approval",
+          "prior_outreach",
+          "next_action",
+          "research_id",
+          "priority_score",
+          "rank",
+          "role_check_note",
+          "qualification"
+        ]
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "at": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "at",
+          "event"
+        ]
+      }
+    },
+    "excluded_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "company",
+          "reason"
+        ]
+      }
+    },
+    "campaign_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "campaign_id",
+    "name",
+    "updated_at",
+    "config",
+    "stages",
+    "company_brief",
+    "competitors",
+    "campaigns",
+    "selected_campaign",
+    "sources",
+    "suppression",
+    "leads",
+    "history",
+    "excluded_candidates",
+    "campaign_notes"
+  ]
+}
